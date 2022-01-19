@@ -22,5 +22,7 @@
         <Title>Threenine.Specification</Title>
         <PackageVersion>2.0</PackageVersion>
     </PropertyGroup>
-
+    <ItemGroup>
+        <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
+    </ItemGroup>
 </Project>
