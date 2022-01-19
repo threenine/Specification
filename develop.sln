@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F0E429F-F509-4319-8FB7-EF936F24FA12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A670B08-6124-45D9-90C4-037620164575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threenine.Specification", "src\Threenine.Specification\Threenine.Specification.csproj", "{CEBB2536-4D36-4167-8BAD-C6D21933E411}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threenine.Specification.Tests", "tests\Threenine.Specification.Tests\Threenine.Specification.Tests.csproj", "{682B3247-5E04-446A-B110-26312A34807A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEBB2536-4D36-4167-8BAD-C6D21933E411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBB2536-4D36-4167-8BAD-C6D21933E411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBB2536-4D36-4167-8BAD-C6D21933E411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBB2536-4D36-4167-8BAD-C6D21933E411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682B3247-5E04-446A-B110-26312A34807A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682B3247-5E04-446A-B110-26312A34807A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682B3247-5E04-446A-B110-26312A34807A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682B3247-5E04-446A-B110-26312A34807A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CEBB2536-4D36-4167-8BAD-C6D21933E411} = {1A670B08-6124-45D9-90C4-037620164575}
+		{682B3247-5E04-446A-B110-26312A34807A} = {0F0E429F-F509-4319-8FB7-EF936F24FA12}
+	EndGlobalSection
+EndGlobal
