@@ -8,7 +8,6 @@ namespace Threenine.Specification.Tests;
 
 public class SpecificationTests
 {
-
     private readonly List<Website> testWebsites;
 
     public SpecificationTests()
@@ -48,15 +47,14 @@ public class SpecificationTests
                 Url = new Uri("https://music.amazon.com")
             }
         };
-        
     }
 
-    [Theory]
+    [Theory, Description("Single predicate specification")]
     [InlineData("Apple")]
     [InlineData("Amazon")]
     [InlineData("Google")]
     [InlineData("Spotify")]
-    public void Should_Satisfy_Search(string brandName)
+    public void Should_Satisfy_Single_Expression(string brandName)
     {
         ISpecification<Website> Spec =
             new SingleSpecification<Website>(o => o.Brand == brandName);
@@ -67,28 +65,43 @@ public class SpecificationTests
         result.Count.ShouldBe(1);
         result[0].ShouldBeOfType<Website>();
         result.ShouldSatisfyAllConditions();
-
     }
-    
-    [Theory, Description("Test the Or Clause of the specification")]
+
+    [Theory, Description("Or Clause of a composite predicate specification")]
     [InlineData("Apple", "Amazon")]
     [InlineData("Amazon", "Spotify")]
-   
     public void Should_Satisfy_Or_Specification(string brandName1, string brandName2)
     {
-       var  Spec1 =
+        var Spec1 =
             new ExpressionSpecification<Website>(o => o.Brand == brandName1);
-        
+
         var Spec2 =
             new ExpressionSpecification<Website>(o => o.Brand == brandName2);
-        
+
         var result = testWebsites.FindAll(o => Spec1.Or(Spec2).SatisfiedBy(o));
 
         result.ShouldNotBeNull();
         result.Count.ShouldBe(2);
         result[0].ShouldBeOfType<Website>();
         result.ShouldSatisfyAllConditions();
-
     }
-   
+    
+    [Theory, Description("Not Clause of a composite predicate specification")]
+    [InlineData("music", "Amazon")]
+    [InlineData("rock", "Spotify")]
+    public void Should_Satisfy_Not_Specification(string tag, string brandName)
+    {
+        var Spec1 =
+            new ExpressionSpecification<Website>(o => o.Tags.Contains(tag));
+
+        var Spec2 =
+            new ExpressionSpecification<Website>(o => o.Brand == brandName);
+
+        var result = testWebsites.FindAll(o => Spec1.Not(Spec2).SatisfiedBy(o));
+
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(3);
+        result[0].ShouldBeOfType<Website>();
+        result.ShouldSatisfyAllConditions();
+    }
 }
