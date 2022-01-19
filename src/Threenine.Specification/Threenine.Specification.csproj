@@ -10,7 +10,7 @@
         <Authors>Gary Woodfine</Authors>
         <Owners>threenine.co.uk</Owners>
         <PackageProjectUrl>https://threenine.github.io/Specification/</PackageProjectUrl>
-        <PackageIconUrl>http://static.threenine.co.uk/threenine_icon.png</PackageIconUrl>
+        <PackageIcon>icon.png</PackageIcon>
         <PackageTags>Specification, spec, ddd, </PackageTags>
         <Copyright>Copyright © 2005 - 2020 Three Nine Consulting Limited</Copyright>
         <Description>simple base Specification package</Description>
