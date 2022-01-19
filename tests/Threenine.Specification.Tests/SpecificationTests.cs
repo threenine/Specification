@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Shouldly;
 using Xunit;
 
@@ -64,6 +65,27 @@ public class SpecificationTests
 
         result.ShouldNotBeNull();
         result.Count.ShouldBe(1);
+        result[0].ShouldBeOfType<Website>();
+        result.ShouldSatisfyAllConditions();
+
+    }
+    
+    [Theory, Description("Test the Or Clause of the specification")]
+    [InlineData("Apple", "Amazon")]
+    [InlineData("Amazon", "Spotify")]
+   
+    public void Should_Satisfy_Or_Specification(string brandName1, string brandName2)
+    {
+       var  Spec1 =
+            new ExpressionSpecification<Website>(o => o.Brand == brandName1);
+        
+        var Spec2 =
+            new ExpressionSpecification<Website>(o => o.Brand == brandName2);
+        
+        var result = testWebsites.FindAll(o => Spec1.Or(Spec2).SatisfiedBy(o));
+
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(2);
         result[0].ShouldBeOfType<Website>();
         result.ShouldSatisfyAllConditions();
 
