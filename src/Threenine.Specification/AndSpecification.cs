@@ -2,16 +2,16 @@ namespace Threenine.Specification;
 
 public class AndSpecification<TEntity> : CompositeSpecification<TEntity>   where TEntity : class 
 {
-    readonly ISpecification<TEntity> leftSpecification;
-    readonly ISpecification<TEntity> rightSpecification;
+    private readonly ISpecification<TEntity> _left;
+    private readonly ISpecification<TEntity> _right;
 
     public AndSpecification(ISpecification<TEntity> left, ISpecification<TEntity> right)  {
-        leftSpecification = left;
-        rightSpecification = right;
+        _left = left;
+        _right = right;
     }
 
     public override bool SatisfiedBy(TEntity o)   {
-        return leftSpecification.SatisfiedBy(o) 
-               && rightSpecification.SatisfiedBy(o);
+        return _left.SatisfiedBy(o) 
+               && _right.SatisfiedBy(o);
     }
 }

@@ -91,16 +91,34 @@ public class SpecificationTests
     [InlineData("rock", "Spotify")]
     public void Should_Satisfy_Not_Specification(string tag, string brandName)
     {
-        var Spec1 =
+        var spec1 =
             new ExpressionSpecification<Website>(o => o.Tags.Contains(tag));
 
-        var Spec2 =
+        var spec2 =
             new ExpressionSpecification<Website>(o => o.Brand == brandName);
 
-        var result = testWebsites.FindAll(o => Spec1.Not(Spec2).SatisfiedBy(o));
+        var result = testWebsites.FindAll(o => spec1.Not(spec2).SatisfiedBy(o));
 
         result.ShouldNotBeNull();
         result.Count.ShouldBe(3);
+        result[0].ShouldBeOfType<Website>();
+        result.ShouldSatisfyAllConditions();
+    }
+    [Theory, Description("And Clause of a composite predicate specification")]
+    [InlineData("music", "Amazon")]
+    [InlineData("rock", "Spotify")]
+    public void Should_Satisfy_And_Specification(string tag, string brandName)
+    {
+        var spec1 =
+            new ExpressionSpecification<Website>(o => o.Tags.Contains(tag));
+
+        var spec2 =
+            new ExpressionSpecification<Website>(o => o.Brand == brandName);
+
+        var result = testWebsites.FindAll(o => spec1.And(spec2).SatisfiedBy(o));
+
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
         result[0].ShouldBeOfType<Website>();
         result.ShouldSatisfyAllConditions();
     }

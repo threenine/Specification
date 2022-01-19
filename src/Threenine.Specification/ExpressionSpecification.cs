@@ -6,9 +6,7 @@ public class ExpressionSpecification<TEntity> : CompositeSpecification<TEntity> 
 
     public ExpressionSpecification(Func<TEntity, bool> expression)
     {
-        if (expression == null)
-            throw new ArgumentNullException();
-        this.expression = expression;
+        this.expression = expression ?? throw new ArgumentNullException();
     }
 
     public override bool SatisfiedBy(TEntity o)
