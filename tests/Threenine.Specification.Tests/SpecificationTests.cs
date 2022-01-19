@@ -59,7 +59,7 @@ public class SpecificationTests
     public void Should_Satisfy_Search(string brandName)
     {
         ISpecification<Website> Spec =
-            new ExpressionSpecification<Website>(o => o.Brand == brandName);
+            new SingleSpecification<Website>(o => o.Brand == brandName);
         
         var result = testWebsites.FindAll(o => Spec.SatisfiedBy(o));
 

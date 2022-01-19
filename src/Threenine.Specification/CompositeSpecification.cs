@@ -1,10 +1,9 @@
 namespace Threenine.Specification;
 
 
-public abstract class CompositeSpecification<TEntity> : ISpecification<TEntity>   where TEntity : class  
+public abstract class CompositeSpecification<TEntity> : Specification<TEntity>,  ICompositeSpecification<TEntity>   where TEntity : class  
 {
-    public abstract bool SatisfiedBy(TEntity o);
-
+  
     public ISpecification<TEntity> And(ISpecification<TEntity> specification)       
     {
         return new AndSpecification<TEntity>(this, specification);
