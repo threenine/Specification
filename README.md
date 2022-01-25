@@ -1,11 +1,19 @@
-# Specification
+# Threenine.Specification
 
 <a href="https://twitter.com/intent/follow?screen_name=threenine39">
     <img src="https://img.shields.io/twitter/follow/threenine39.svg?label=Follow%20@threenine.co.uk" alt="Follow @threenine39" /></a>
 
+[![NuGet Badge](https://buildstats.info/nuget/Threenine.Specification)](https://www.nuget.org/packages/Threenine.Specifiction/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 An implementation of the Specification Software Design Pattern
 
 
+### Support This Project
+
+If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying the team a coffee:
+
+<a href="https://www.buymeacoffee.com/XBhTJcRiC" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
 
 ## Free to use NOT free support
 
